@@ -1,0 +1,24 @@
+# Never uploaded to Vercel: private research, local state, build caches.
+# The public site is static: the Python engine, API and analyst tools stay local, so no serverless function is created.
+supporting info
+.venv
+graphify-out
+.claude
+.pytest_cache
+**/__pycache__
+*.db
+.env
+.env.*
+web/node_modules
+web/dist
+tests
+docs
+api
+cascade
+scripts
+requirements.txt
+render.yaml
+*.bat
+data/evidence
+data/recorded_sessions
+data/private

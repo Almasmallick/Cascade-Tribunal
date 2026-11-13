@@ -1,0 +1,18 @@
+# Fallback only: the live site runs on Vercel (docs/DEPLOYMENT.md). Builds the interface too, so one URL serves both.
+services:
+  - type: web
+    name: cascade-tribunal-api
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt && cd web && npm ci && npm run build
+    startCommand: uvicorn cascade.api:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.13.5
+      - key: CASCADE_LLM
+        value: "off"
+      - key: CASCADE_PUBLIC
+        value: "1"
+      - key: CASCADE_STATELESS
+        value: "1"
